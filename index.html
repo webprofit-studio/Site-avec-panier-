@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebProfit Studio | Boutique Ultra-Rapide</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <style>
+        :root {
+            --primary: #111;
+            --accent: #27ae60;
+            --promo: #ff3b30;
+            --whatsapp: #25d366;
+            --bg: #f4f4f7;
+        }
+
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--bg); color: var(--primary); scroll-behavior: smooth; }
+        
+        /* BANDEAU PROMO AVEC BOUTON */
+        .promo-bar { 
+            background: var(--primary); 
+            color: white; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            padding: 12px; 
+            font-size: 0.75rem; 
+            font-weight: bold; 
+            border-bottom: 2px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .promo-btn {
+            background: var(--promo);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            animation: pulse 1.5s infinite;
+        }
+
+        header { background: white; padding: 30px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .logo-box {
+    display:  flex;
+    justify-content: center;
+    margin-bottom:5px
+}
+        .container { max-width: 1000px; margin: 20px auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 10px; }
+
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; flex-direction: column; }
+
+        .img-svg { background: #f9f9f9; height: 160px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #eee; }
+        .img-svg svg { width: 70px; height: 70px; fill: var(--primary); }
+
+        .product-info { padding: 15px; text-align: center; }
+        .name { font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; }
+        .price { color: var(--promo); font-weight: 800; font-size: 1.1rem; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 0.75rem; margin-right: 5px; }
+
+        .add-btn {
+            background: var(--primary); color: white; border: none; padding: 12px; width: 100%; border-radius: 12px;
+            font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .add-btn:active { transform: scale(0.95); background: var(--accent); }
+
+        .checkout { max-width: 450px; margin: 30px auto; background: white; padding: 25px; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-top: 5px solid var(--accent); }
+        input { width: 100%; padding: 14px; margin-bottom: 12px; border: 1.5px solid #eee; border-radius: 12px; box-sizing: border-box; font-family: inherit; }
+        
+        .whatsapp-btn { background: var(--whatsapp); color: white; border: none; width: 100%; padding: 18px; border-radius: 15px; font-size: 1.1rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
+
+        footer { background: #111; color: white; padding: 40px 20px; text-align: center; margin-top: 50px; }
+        .socials { display: flex; justify-content: center; gap: 25px; margin: 20px 0; }
+        .socials a { color: white; font-size: 1.6rem; text-decoration: none; transition: 0.3s; }
+        .socials a:hover { color: var(--accent); transform: translateY(-5px); }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="promo-bar">
+    <span>🔥 PROMO AUJOURD'HUI : -10% SUR TOUS LES ARTICLES ! 🔥</span>
+    <a href="#shop" class="promo-btn">Profiter</a>
+</div>
+
+<header>
+
+    <!-- LOGO SVG PROPRE -->
+    <div class="logo-box">
+        <svg class="logo-svg" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="48" fill="#111"/>
+            
+            <!-- Fusée stylisée -->
+            <path d="M50 20 L65 60 L50 50 L35 60 Z" fill="#27ae60"/>
+            
+            <!-- Flamme -->
+            <circle cx="50" cy="70" r="6" fill="#ff3b30"/>
+        </svg>
+    </div>
+
+    <!-- TITRE -->
+    <h1 class="title">WebProfit Studio 🚀</h1>
+
+    <!-- TEXTE CONVERSION -->
+    <p class="subtitle">
+        Crée ton site web qui attire des clients et génère des ventes automatiquement 💸
+    </p>
+</header>
+
+<div class="container" id="shop">
+    <!-- ARTICLE 1 : HABIT -->
+    <div class="product-card">
+        <div class="img-svg">
+            <svg viewBox="0 0 24 24"><path d="M6,2L3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6L18,2H15A3,3 0 0,1 12,5A3,3 0 0,1 9,2H6M8,8H16V10H8V8Z""")/>></svg>
+        </div>
+        <div class="product-info">
+            <div class="name">Habit Élégant</div>
+            <div class="price"><span class="old-price">1 500</span> 1 350 F</div>
+            <button class="add-btn" onclick="add('Habit Élégant', 1350)">🎁 Ajouter</button>
+        </div>
+    </div>
+
+    <!-- ARTICLE 2 : PANTALON -->
+    <div class="product-card">
+        <div class="img-svg">
+            <svg viewBox="0 0 24 24"><path d="M6,2L8,21L12,21L12,12L12,21L16,21L18,2H6Z""")/>></svg>
+        </div>
+        <div class="product-info">
+            <div class="name">Pantalon Stylé</div>
+            <div class="price"><span class="old-price">4 000</span> 3 600 F</div>
+            <button class="add-btn" onclick="add('Pantalon Stylé', 3600)">💎 Ajouter</button>
+        </div>
+    </div>
+
+    <!-- ARTICLE 3 : SNEAKERS -->
+    <div class="product-card">
+        <div class="img-svg">
+            <svg viewBox="0 0 24 24"><path d="M21,15H17.5L15,12L13.5,13L16,16H21V15M2,13L7,11L8.5,12L11,10.5V13L15,16V18H2V13Z""")/>></svg>
+        </div>
+        <div class="product-info">
+            <div class="name">Paire Sneakers</div>
+            <div class="price"><span class="old-price">3 500</span> 3 150 F</div>
+            <button class="add-btn" onclick="add('Paire Sneakers', 3150)">⚡ Ajouter</button>
+        </div>
+    </div>
+
+    <!-- ARTICLE 4 : CHAPEAU -->
+    <div class="product-card">
+        <div class="img-svg">
+            <svg viewBox="0 0 24 24"><path d="M2,18V16C4,16 5,15 6,14V7A5,5 0 0,1 11,2H13A5,5 0 0,1 18,7V14C19,15 20,16 22,16V18H2Z""")/>></svg>
+        </div>
+        <div class="product-info">
+            <div class="name">Chapeau Chic</div>
+            <div class="price"><span class="old-price">1 000</span> 900 F</div>
+            <button class="add-btn" onclick="add('Chapeau Chic', 900)">👑 Ajouter</button>
+        </div>
+    </div>
+</div>
+
+<div class="checkout">
+    <h3 style="text-align:center;">🛍️ Votre Panier</h3>
+    <div id="cartList" style="margin-bottom:15px; font-size:0.9rem;"></div>
+    <div style="font-size:1.3rem; font-weight:800; text-align:center; margin-bottom:20px; color:var(--accent);">Total : <span id="total">0</span> FCFA</div>
+    
+    <input type="text" id="name" placeholder="Nom complet">
+    <input type="text" id="loc" placeholder="Lieu de livraison">
+    
+    <button class="whatsapp-btn" onclick="send()">
+        <i class="fab fa-whatsapp"></i> Commander via WhatsApp
+    </button>
+</div>
+
+<footer>
+    <p><b>WEBPROFIT STUDIO</b></p>
+    <div class="socials">
+        <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:webprofitstudio@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p style="font-size:0.8rem; opacity:0.7;">Contact : 0719949973<br>webprofitstudio@gmail.com</p>
+</footer>
+
+<script>
+    let cart = []; let total = 0;
+    function add(n, p) {
+        cart.push({n, p}); total += p;
+        document.getElementById('cartList').innerHTML += `<div style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px dashed #eee;"><span>${n}</span><b>${p} F</b></div>`;
+        document.getElementById('total').innerText = total.toLocaleString();
+        document.querySelector('.checkout').scrollIntoView({ behavior: 'smooth' });
+    }
+    function send() {
+        let n = document.getElementById('name').value;
+        let l = document.getElementById('loc').value;
+        if(cart.length == 0 || n == "") { alert("Veuillez remplir vos infos !"); return; }
+        let m = "*WEBPROFIT STORE - COMMANDE*%0A*Nom:* " + n + "%0A*Lieu:* " + l + "%0A%0A*Articles:*%0A";
+        cart.forEach(i => m += "- " + i.n + " (" + i.p + "F)%0A");
+        m += "%0A*TOTAL : " + total + " FCFA*";
+        window.location.href = "https://wa.me?text=" + m;
+    }
+</script>
+
+</body>
+</html>
