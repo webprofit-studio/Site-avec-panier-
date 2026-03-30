@@ -35,14 +35,14 @@ header {
     text-align:center;
 }
 
-/* SVG LOGO */
-.logo svg {
-    background:#111;
-    border-radius:50%;
-    padding:10px;
+/* IMAGE HEADER */
+header img {
+    width:100%;
+    max-width:300px;
+    border-radius:15px;
 }
 
-/* ATTENTION TEXT */
+/* ALERT */
 .alert {
     margin-top:10px;
     font-size:12px;
@@ -68,6 +68,14 @@ header {
     padding:15px;
     border-radius:15px;
     text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.product img {
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:10px;
 }
 
 .price {
@@ -98,6 +106,25 @@ input {
     width:100%;
     padding:10px;
     margin-bottom:10px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+/* PANIER ITEM */
+.cart-item {
+    display:flex;
+    justify-content:space-between;
+    padding:5px 0;
+    border-bottom:1px dashed #eee;
+    font-size:14px;
+}
+
+/* URGENCE */
+.urgent {
+    color:red;
+    text-align:center;
+    font-weight:bold;
+    margin-top:10px;
 }
 
 /* ANIMATION */
@@ -116,17 +143,14 @@ input {
 </div>
 
 <header>
-<img src="choco.jpeg" alt="choco" style="width: 100%; max-width: 300px; display: block; margin: 0 auto;">
+<img src="https://i.ibb.co/xxxxx/header.jpg">
 
 <h1 style="color:#27ae60;">WebProfit Store</h1>
-
 <p>Transforme tes visiteurs en clients 🚀</p>
 
 <div class="alert">
 ⚠️ Offre limitée aujourd’hui
 </div>
-
-
 </header>
 
 <!-- PRODUITS -->
@@ -134,35 +158,30 @@ input {
 
 <div class="product">
 <h3>Habit Élégant</h3>
-<img src="boss.jpeg" alt="boss" style="width: 100%; max-width: 300px; display: block; margin: 0 auto;">
-
+<img src="https://i.ibb.co/xxxxx/habit.jpg">
 <p class="price">1 350 F</p>
-<button class="btn" onclick="add('Habit',1350)">Ajouter</button>
+<button class="btn" onclick="add('Habit Élégant',1350)">Ajouter</button>
 </div>
 
 <div class="product">
 <h3>Pantalon Stylé</h3>
-<img src="pantalon.jpeg" alt="pantalon" style="width: 100%; max-width: 300px; display: block; margin: 0 auto;">
-
+<img src="https://i.ibb.co/xxxxx/pantalon.jpg">
 <p class="price">3 600 F</p>
-<button class="btn" onclick="add('Pantalon',3600)">Ajouter</button>
+<button class="btn" onclick="add('Pantalon Stylé',3600)">Ajouter</button>
 </div>
 
 <div class="product">
 <h3>Sneakers</h3>
-<img src="paire.jpeg" alt="paire" style="width: 100%; max-width: 300px; display: block; margin: 0 auto;">
-
+<img src="https://i.ibb.co/xxxxx/sneakers.jpg">
 <p class="price">3 150 F</p>
 <button class="btn" onclick="add('Sneakers',3150)">Ajouter</button>
 </div>
 
 <div class="product">
 <h3>Chapeau</h3>
-<img src="ch.jpeg" alt="ch" style="width: 100%; max-width: 300px; display: block; margin: 0 auto;">
-
+<img src="https://i.ibb.co/xxxxx/chapeau.jpg">
 <p class="price">900 F</p>
 <button class="btn" onclick="add('Chapeau',900)">Ajouter</button>
-
 </div>
 
 </div>
@@ -181,28 +200,42 @@ input {
 
 <button class="btn" onclick="send()">Commander</button>
 
+<p class="urgent">⚠️ Plus que 3 articles disponibles !</p>
+
 </div>
 
 <script>
-let total=0;
+let total = 0;
 
-function add(name,price){
-let div=document.createElement("div");
-div.innerText=name+" - "+price+"F";
-document.getElementById("cart").appendChild(div);
+function add(name, price){
+    let cart = document.getElementById("cart");
 
-total+=price;
-document.getElementById("total").innerText=total;
+    let item = document.createElement("div");
+    item.className = "cart-item";
+    item.innerHTML = `<span>${name}</span><b>${price}F</b>`;
+
+    cart.appendChild(item);
+
+    total += price;
+    document.getElementById("total").innerText = total;
 }
 
 function send(){
-let name=document.getElementById("name").value;
+    let name = document.getElementById("name").value;
+    let loc = document.getElementById("loc").value;
 
-if(name==""){alert("Remplis ton nom");return;}
+    if(name == ""){
+        alert("Remplis ton nom");
+        return;
+    }
 
-let message="Commande:\nTotal:"+total+" FCFA";
+    let message = "🛍️ *COMMANDE WEBPROFIT STORE*%0A";
+    message += "👤 Nom: " + name + "%0A";
+    message += "📍 Lieu: " + loc + "%0A";
+    message += "💰 Total: " + total + " FCFA%0A";
+    message += "%0A🚀 Je confirme ma commande";
 
-window.open("https://wa.me/2250719949973?text="+encodeURIComponent(message));
+    window.open("https://wa.me/2250719949973?text=" + message);
 }
 </script>
 
